@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>講師紹介 | 〇〇学習塾</title>
+    <meta name="description" content="〇〇学習塾の講師紹介ページです。各講師の特徴や指導スタイルをご紹介します。">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+            color: #333;
+            line-height: 1.8;
+            background-color: #f8fbff;
+        }
+
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #ddd;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1d4f91;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #1d4f91;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #eaf4ff, #ffffff);
+            text-align: center;
+            padding: 80px 20px 60px;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            color: #1d4f91;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: auto;
+            padding: 60px 20px 80px;
+        }
+
+        .teacher-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 340px));
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .teacher-card {
+            background-color: #ffffff;
+            border: 1px solid #e2ebf7;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(29, 79, 145, 0.08);
+            max-width: 340px;
+            margin: auto;
+        }
+
+        .teacher-card img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .teacher-info {
+            padding: 22px;
+        }
+
+        .teacher-info h2 {
+            color: #1d4f91;
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .teacher-info .role {
+            color: #4a7db6;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .teacher-info p {
+            font-size: 15px;
+            color: #555;
+            text-align: left;
+        }
+
+        .teacher-info .bio-detail {
+            display: block;
+            text-align: left;
+            margin-top: 0.6em;
+        }
+
+        .cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .message .left-line,
+        .hero .left-line {
+            display: block;
+            text-align: left;
+        }
+
+        .one-line {
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        
+
+        .button {
+            display: inline-block;
+            background-color: #1d4f91;
+            color: white;
+            padding: 13px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background-color: #163d70;
+        }
+
+        footer {
+            background-color: #1d4f91;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        @media (max-width: 800px) {
+            .teacher-list {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            nav a {
+                margin: 0 8px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">〇〇学習塾</div>
+        <nav>
+            <a href="index.html">ホーム</a>
+            <a href="teachers.html">講師紹介</a>
+            <a href="index.html#course">コース</a>
+            <a href="index.html#access">レッスン場所</a>
+            <a href="index.html#contact">お問い合わせ</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>講師紹介</h1>
+        <p>〇〇学習塾では生徒一人ひとりの目標や学習状況に合わせて、丁寧な指導を行っています。学校の授業のフォローから定期テスト対策、高校・大学受験まで幅広くサポートします。当塾は算数、数学の個別指導を強みとしています。生徒さん一人一人の状況に応じ、無理のないカリキュラムを組みます。苦手な単元を自分のペースでじっくり取り組めます。</p>
+    </section>
+
+    <main>
+        <div class="teacher-list">
+            <div class="teacher-card">
+                <img
+                    src="images/teacher-800.jpg"
+                    srcset="images/teacher-400.jpg 400w, images/teacher-800.jpg 800w, images/teacher-1200.jpg 1200w"
+                    sizes="(max-width:600px) 90vw, 300px"
+                    alt="高橋先生の写真"
+                    loading="lazy"
+                >
+                <div class="teacher-info">
+                    <h2>高橋大輔</h2>
+                    <p>1983年生まれ。東京理科大学理学部第1部数学科卒業後、同大学理学専攻科を修了。<span class="bio-detail">都内近郊の私立学校、公立学校、大手進学塾に講師として勤務した経験があり、私立学校では工業高校・進学校・大学付属校で生徒たちの卒業まで関わる。指導実績としては、大学受験で早稲田大学・立教大学・駒澤大学、高校受験で中央大学高等学校・中央大学杉並高等学校など。</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta">
+            <a href="index.html#contact" class="button">無料体験・お問い合わせ</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 〇〇学習塾 All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
