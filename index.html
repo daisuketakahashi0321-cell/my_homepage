@@ -7,12 +7,25 @@
     <meta name="description" content="〇〇学習塾は目黒駅周辺で小学生・中学生・高校生に対応する個別指導塾です。算数・数学の丁寧な指導と無料体験授業をご用意しています。">
     <meta name="keywords" content="目黒駅, 個別指導, 学習塾, 算数, 数学, 小学生, 中学生, 高校生, 無料体験">
     <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://example.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:site_name" content="〇〇学習塾">
+    <meta property="og:title" content="〇〇学習塾｜目黒駅周辺の個別指導塾">
+    <meta property="og:description" content="目黒駅周辺で小学生・中学生・高校生に対応する個別指導塾。算数・数学を中心に一人ひとりを丁寧にサポートします。">
+    <meta property="og:url" content="https://example.com/">
+    <meta property="og:image" content="https://example.com/images/teacher-1200.jpg">
+    <meta name="twitter:card" content="summary_large_image">
 
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -338,6 +351,10 @@
             </div>
         </div>
     </div>
+
+    <p style="text-align:center; margin-top:22px;">
+        <a href="teachers.html" class="button">講師紹介ページを見る</a>
+    </p>
 </section>
 
 <section id="access">
@@ -375,6 +392,43 @@
 <footer>
     <p>&copy; 2026 〇〇学習塾 All Rights Reserved.</p>
 </footer>
+
+<script>
+    function scrollToSection(sectionId) {
+        if (!sectionId) return;
+
+        const target = document.getElementById(sectionId);
+        if (!target) return;
+
+        setTimeout(() => {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const params = new URLSearchParams(window.location.search);
+        const querySection = params.get('section') || params.get('id');
+        const hashSection = window.location.hash.replace('#', '');
+        scrollToSection(querySection || hashSection);
+    });
+
+    window.addEventListener('hashchange', () => {
+        scrollToSection(window.location.hash.replace('#', ''));
+    });
+</script>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "〇〇学習塾",
+    "description": "目黒駅周辺で小学生・中学生・高校生に対応する個別指導塾。算数・数学を中心に丁寧に指導します。",
+    "url": "https://example.com/",
+    "telephone": "+81-90-4067-5818",
+    "areaServed": "東京都目黒区",
+    "knowsAbout": ["算数", "数学", "個別指導", "高校受験", "大学受験"]
+}
+</script>
 
 </body>
 </html>
