@@ -1,0 +1,220 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "echo-test",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"Write-Output 'task-ok'"
+			]
+		},
+		{
+			"label": "publish-github-pages",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"Set-Location -LiteralPath 'c:\\Users\\Owner\\Desktop\\my_homepage'; git status --short; git add index.html teachers.html robots.txt sitemap.xml; git commit -m \"Set production URLs for GitHub Pages SEO\"; git push origin master; & 'C:\\Program Files\\GitHub CLI\\gh.exe' api -X POST repos/daisuketakahashi0321-cell/my_homepage/pages -f source[branch]=master -f source[path]=/ -f build_type=legacy; & 'C:\\Program Files\\GitHub CLI\\gh.exe' api repos/daisuketakahashi0321-cell/my_homepage/pages"
+			]
+		},
+		{
+			"label": "git-commit-push-seo",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"Set-Location -LiteralPath c:\\Users\\Owner\\Desktop\\my_homepage; git add index.html teachers.html robots.txt sitemap.xml; git commit -m seo_urls_update; git push origin master"
+			]
+		},
+		{
+			"label": "check-remote-head",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"Set-Location -LiteralPath c:\\Users\\Owner\\Desktop\\my_homepage; git rev-parse HEAD; git ls-remote origin refs/heads/master"
+			]
+		},
+		{
+			"label": "push-master",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"Set-Location -LiteralPath c:\\Users\\Owner\\Desktop\\my_homepage; git push origin master"
+			]
+		},
+		{
+			"label": "push-master-with-token",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"Set-Location -LiteralPath c:\\Users\\Owner\\Desktop\\my_homepage; $tok = & 'C:\\Program Files\\GitHub CLI\\gh.exe' auth token; git push \"https://$tok@github.com/daisuketakahashi0321-cell/my_homepage.git\" master"
+			]
+		},
+		{
+			"label": "push-master-with-token-2",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"Set-Location -LiteralPath c:\\Users\\Owner\\Desktop\\my_homepage; $tok = & \"C:\\Program Files\\GitHub CLI\\gh.exe\" auth token; git push \"https://$tok@github.com/daisuketakahashi0321-cell/my_homepage.git\" master"
+			]
+		},
+		{
+			"label": "push-master-with-token-3",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"Set-Location -LiteralPath c:\\Users\\Owner\\Desktop\\my_homepage; $tok = gh auth token; git push \"https://$tok@github.com/daisuketakahashi0321-cell/my_homepage.git\" master"
+			]
+		},
+		{
+			"label": "enable-pages-and-check",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"Set-Location -LiteralPath c:\\Users\\Owner\\Desktop\\my_homepage; gh api -X POST repos/daisuketakahashi0321-cell/my_homepage/pages -f source[branch]=master -f source[path]=/ -f build_type=legacy; gh api repos/daisuketakahashi0321-cell/my_homepage/pages"
+			]
+		},
+		{
+			"label": "check-pages-status",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"gh api repos/daisuketakahashi0321-cell/my_homepage/pages"
+			]
+		},
+		{
+			"label": "commit-push-verification-tag",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"Set-Location -LiteralPath c:\\Users\\Owner\\Desktop\\my_homepage; git add index.html; git commit -m gsc_verification_tag; $tok = gh auth token; git push \"https://$tok@github.com/daisuketakahashi0321-cell/my_homepage.git\" master"
+			]
+		},
+		{
+			"label": "pages-status-after-meta",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"gh api repos/daisuketakahashi0321-cell/my_homepage/pages"
+			]
+		},
+		{
+			"label": "pages-status-check-2",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"gh api repos/daisuketakahashi0321-cell/my_homepage/pages"
+			]
+		},
+		{
+			"label": "check-live-meta-tag",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"$html = (Invoke-WebRequest -UseBasicParsing 'https://daisuketakahashi0321-cell.github.io/my_homepage/').Content; if ($html -match 'google-site-verification') { 'FOUND' } else { 'NOT_FOUND' }; ($html -split \"`n\" | Select-String 'google-site-verification|canonical|og:url' | ForEach-Object { $_.Line })"
+			]
+		},
+		{
+			"label": "pages-status-check-3",
+			"type": "shell",
+			"command": "gh",
+			"args": [
+				"api",
+				"repos/daisuketakahashi0321-cell/my_homepage/pages"
+			]
+		},
+		{
+			"label": "commit-push-html-verification-file",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"Set-Location -LiteralPath c:\\Users\\Owner\\Desktop\\my_homepage; git add google133e77c75273b578.html; git commit -m gsc_html_verification_file; $tok = gh auth token; git push \"https://$tok@github.com/daisuketakahashi0321-cell/my_homepage.git\" master"
+			]
+		},
+		{
+			"label": "pages-status-check-4",
+			"type": "shell",
+			"command": "gh",
+			"args": [
+				"api",
+				"repos/daisuketakahashi0321-cell/my_homepage/pages"
+			]
+		},
+		{
+			"label": "pages-status-check-5",
+			"type": "shell",
+			"command": "gh",
+			"args": [
+				"api",
+				"repos/daisuketakahashi0321-cell/my_homepage/pages"
+			]
+		},
+		{
+			"label": "pages-status-check-6",
+			"type": "shell",
+			"command": "gh",
+			"args": [
+				"api",
+				"repos/daisuketakahashi0321-cell/my_homepage/pages"
+			]
+		},
+		{
+			"label": "check-pages-latest-build",
+			"type": "shell",
+			"command": "gh",
+			"args": [
+				"api",
+				"repos/daisuketakahashi0321-cell/my_homepage/pages/builds/latest"
+			]
+		},
+		{
+			"label": "git-status-for-save",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"Set-Location -LiteralPath c:\\Users\\Owner\\Desktop\\my_homepage; git status --short; git branch --show-current"
+			]
+		},
+		{
+			"label": "save-checkpoint-commit-push",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"Set-Location -LiteralPath c:\\Users\\Owner\\Desktop\\my_homepage; git add .vscode; git commit -m checkpoint_save; $tok = gh auth token; git push \"https://$tok@github.com/daisuketakahashi0321-cell/my_homepage.git\" master; git rev-parse --short HEAD"
+			]
+		}
+	]
+}
