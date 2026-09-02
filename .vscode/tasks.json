@@ -215,6 +215,26 @@
 				"-Command",
 				"Set-Location -LiteralPath c:\\Users\\Owner\\Desktop\\my_homepage; git add .vscode; git commit -m checkpoint_save; $tok = gh auth token; git push \"https://$tok@github.com/daisuketakahashi0321-cell/my_homepage.git\" master; git rev-parse --short HEAD"
 			]
+		},
+		{
+			"label": "git-status-after-save",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"Set-Location -LiteralPath c:\\Users\\Owner\\Desktop\\my_homepage; git status --short"
+			]
+		},
+		{
+			"label": "final-save-commit-push",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"Set-Location -LiteralPath c:\\Users\\Owner\\Desktop\\my_homepage; git add .vscode/tasks.json; git commit -m checkpoint_save_final; $tok = gh auth token; git push \"https://$tok@github.com/daisuketakahashi0321-cell/my_homepage.git\" master; git status --short; git rev-parse --short HEAD"
+			]
 		}
 	]
 }
