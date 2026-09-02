@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://daisuketakahashi0321-cell.github.io/my_homepage/sitemap.xml
